@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://hoangle2806:vanmaibenem2829@cluster0-hkps0.mongodb.net/test?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://hoangle2806:vanmaibenem2829@cluster0-hkps0.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "sugar"
 }
