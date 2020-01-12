@@ -1,14 +1,20 @@
 import React, {Fragment} from 'react';
-import './App.css';
-import Dashboard from './dashboard/components/dashboard'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Dashboard from './dashboard/components/dashboard';
+import { SignIn } from './login-form';
 
 const App = () => {
   return (
+    <Router>
     <Fragment>
-      <Dashboard>
-
-      </Dashboard>
+      <Route exact path='/' component={SignIn} />
+      <section className='container'>
+        <Switch>
+          <Route exact path='/dashboard' component={Dashboard} />
+        </Switch>
+      </section>
     </Fragment>
+    </Router>
   );
 }
 
