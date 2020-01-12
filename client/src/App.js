@@ -1,10 +1,13 @@
 import React, {Fragment} from 'react';
 import './App.css';
+import Dashboard from './dashboard/components/dashboard'
 
 const App = () => {
   return (
     <Fragment>
-      <h1>  Hello world </h1>
+      <Dashboard>
+
+      </Dashboard>
     </Fragment>
   );
 }
