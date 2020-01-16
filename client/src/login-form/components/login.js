@@ -48,6 +48,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignIn(props) {
   const classes = useStyles();
+  console.log(props)
 
   const {
     onEmailChange,

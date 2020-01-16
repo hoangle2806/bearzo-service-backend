@@ -2,7 +2,10 @@ import React , { Component } from 'react';
 import { connect } from 'react-redux';
 
 import SignIn from './login';
-import { fetchData } from '../../actions';
+import {
+    fetchData,
+    register
+} from '../../actions';
 
 class LoginLifecycle extends Component {
     constructor(props) {
@@ -29,11 +32,11 @@ class LoginLifecycle extends Component {
     }
 
     render () {
-        console.log(this.props)
         return (
             <SignIn 
             onEmailChange={this.handleEmailInput}
-            onPasswordChange={this.handlePasswordInput}/>
+            onPasswordChange={this.handlePasswordInput}
+            />
         )
     }
 }
@@ -43,7 +46,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    fetchData
+    fetchData,
+    register
 }
 
 const LoginComponent = connect(mapStateToProps, mapDispatchToProps) (LoginLifecycle);
