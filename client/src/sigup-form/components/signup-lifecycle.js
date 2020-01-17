@@ -1,23 +1,22 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SignIn from './login';
-import {
-    fetchData,
-    register
-} from '../../actions';
+import SignUp from './signup-view';
 
-class LoginLifecycle extends Component {
+class SignUpLifecycle extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            name: ''
         }
     }
 
-    componentDidMount() {
-        this.props.fetchData()
+    handlePasswordInput = (event) => {
+        this.setState({
+            email: event.target.value
+        })
     }
 
     handleEmailInput = (event) => {
@@ -37,23 +36,18 @@ class LoginLifecycle extends Component {
 
     render () {
         return (
-            <SignIn 
-            onEmailChange={this.handleEmailInput}
-            onPasswordChange={this.handlePasswordInput}
+            <SignUp 
             />
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    mainReducer: state.mainReducer
 })
 
 const mapDispatchToProps = {
-    fetchData,
-    register
 }
 
-const LoginComponent = connect(mapStateToProps, mapDispatchToProps) (LoginLifecycle);
+const SignUpComponent = connect(mapStateToProps, mapDispatchToProps) (SignUpLifecycle);
 
-export default LoginComponent;
+export default SignUpComponent;
