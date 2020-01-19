@@ -46,8 +46,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUp(props) {
   const classes = useStyles();
+
+  const {
+    onPasswordInput,
+    onEmailInput,
+    onNameInput,
+    onSubmit
+  } = props
 
   return (
     <Container component="main" maxWidth="xs">
@@ -59,7 +66,8 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate 
+                onSubmit={onSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -69,7 +77,7 @@ export default function SignUp() {
                 id="Name"
                 label="Name"
                 name="Name"
-                autoComplete="name"
+                onChange={onNameInput}
               />
             </Grid>
             <Grid item xs={12}>
@@ -80,7 +88,7 @@ export default function SignUp() {
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"
+                onChange={onEmailInput}
               />
             </Grid>
             <Grid item xs={12}>
@@ -92,7 +100,7 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                onChange={onPasswordInput}
               />
             </Grid>
           </Grid>
@@ -102,6 +110,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            // href="/"
           >
             Sign Up
           </Button>
