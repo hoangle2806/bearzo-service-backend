@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const connectPostGres = require('./config/postgres');
 
 // import routes
 const userRoute = require('./routes/api/users');
@@ -10,6 +11,7 @@ const app = express();
 
 // Connect Database
 connectDB();
+connectPostGres();
 
 // Init middleware
 app.use(express.json({ extended: false}));
