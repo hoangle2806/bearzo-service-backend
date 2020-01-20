@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import SignIn from './login';
 import {
     fetchData,
-    register
+    login
 } from '../../actions';
 
 class LoginLifecycle extends Component {
@@ -31,8 +31,9 @@ class LoginLifecycle extends Component {
         })
     }
 
-    handleSubmit = () => {
-        
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.login(this.state)
     }
 
     render () {
@@ -40,6 +41,7 @@ class LoginLifecycle extends Component {
             <SignIn 
             onEmailChange={this.handleEmailInput}
             onPasswordChange={this.handlePasswordInput}
+            onSubmit={this.handleSubmit}
             />
         )
     }
@@ -51,7 +53,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     fetchData,
-    register
+    login
 }
 
 const LoginComponent = connect(mapStateToProps, mapDispatchToProps) (LoginLifecycle);

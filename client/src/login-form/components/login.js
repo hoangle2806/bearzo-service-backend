@@ -3,8 +3,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -48,11 +46,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignIn(props) {
   const classes = useStyles();
-  console.log(props)
 
   const {
     onEmailChange,
-    onPasswordChange
+    onPasswordChange,
+    onSubmit
   } = props;
 
   return (
@@ -65,7 +63,8 @@ export default function SignIn(props) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate
+          onSubmit={onSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -74,7 +73,6 @@ export default function SignIn(props) {
             id="email"
             label="Email Address"
             name="email"
-            autoComplete="email"
             autoFocus
             onChange={onEmailChange}
           />
@@ -87,7 +85,6 @@ export default function SignIn(props) {
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
             onChange={onPasswordChange}
           />
           <Button
@@ -96,6 +93,7 @@ export default function SignIn(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
+            // href="/dashboard"
           >
             Sign In
           </Button>
